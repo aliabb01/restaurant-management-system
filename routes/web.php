@@ -17,6 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('user', ['middleware' => 'auth', function () {
+    return view('user');
+}]);
+Route::get('admin', ['middleware' => 'isadmin', function () {
+    return view('admin');
+}]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('about', function () {
+    return view('about');
+});
+
+Route::get('/welcome', 'HomeController@index');
+
+Auth::routes();
