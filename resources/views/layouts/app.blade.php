@@ -16,7 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <script src="https://kit.fontawesome.com/d93c46c83b.js" crossorigin="anonymous"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -58,7 +58,13 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+
                     <ul class="navbar-nav ml-auto">
+                        <a href="#" class="nav-link">
+                            <span class="fas fa-shopping-cart">
+                              My Cart ( {{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }})
+                            </span>
+                        </a>
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
