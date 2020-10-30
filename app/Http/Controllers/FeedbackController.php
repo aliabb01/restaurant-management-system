@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Feedback;
+use App\Review;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -14,7 +15,7 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        //
+        return view ('delete_reviews');
     }
 
     /**

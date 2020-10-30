@@ -25,9 +25,28 @@ Route::get('admin', ['middleware' => 'isadmin', function () {
 }]);
 
 Route::get('about', function () {
-    return view('about');
+    return view('/about');
+});
+
+Route::get('careers', function () {
+    return view('/careers');
+});
+
+Route::get('order-reviews', function () {
+    return view('/order-reviews');
+});
+
+Route::get('report', function () {
+    return view('/report');
 });
 
 Route::get('/welcome', 'HomeController@index');
 
+Route::get('/result', 'SearchController@index');
+
+Route::get('/history', 'PaymentController@history');
+Route::get('/cart', 'DishController@add');
+Route::get('/payment', 'PaymentController@index');
+Route::get('/delete_reviews', 'FeedbackController@index');
+Route::get('/dish.index', 'DishController@index');
 Auth::routes();

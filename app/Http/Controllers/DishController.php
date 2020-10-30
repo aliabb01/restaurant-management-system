@@ -14,7 +14,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        return view('dish.index');
     }
 
     /**
@@ -81,5 +81,9 @@ class DishController extends Controller
     public function destroy(Dish $dish)
     {
         //
+    }
+    public function add()
+    {
+        return view('cart');
     }
 }
