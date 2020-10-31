@@ -30,14 +30,19 @@
             <button class="btn btn-success pt-2 pb-2" type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
+    <div class="container pt-1 pb-2 my-3  bg-dark su" id=""  style="background-image: url('images/img.jpg');" >
 
-
-
-
-    <h4 class="text-center mt-5">
-        section for subscribe
+    <h4 class="text-center mt-1">
+    <span>Stay up to date in the email world.</span> </h4>
+    </br >
+    <h4 class="text-center mt-1">
+    Subscribe for weekly emails with curated articles, guides, and videos to enhance your marketing tactics.
     </h4>
+    
     @include('subscribe')
+    </div>
+
+   
 
     <h4 class="text-center mt-5">
         section for feedback(it can be placed in footer also)
@@ -46,3 +51,12 @@
 
 </div>
 @endsection
+<style> 
+.su{
+background:url(images/img.jpg);
+  background-repeat: no-repeat;
+  background-size:1405px 530px ;
+
+
+}
+  </style>
