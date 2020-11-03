@@ -66,7 +66,11 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
         
-
+<table>
+    <tr>
+        <td>dish nam</td>
+    </tr>
+</table>
     </div> <!-- /#page-content-wrapper -->
 </div> <!-- /#wrapper -->
 <!-- Bootstrap core JavaScript -->

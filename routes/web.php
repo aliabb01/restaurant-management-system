@@ -39,6 +39,9 @@ Route::get('order-reviews', function () {
 Route::get('report', function () {
     return view('/report');
 });
+Route::get('job_application', function () {
+    return view('job_application');
+});
 
 Route::get('/welcome', 'HomeController@index');
 
@@ -49,4 +52,5 @@ Route::get('/cart', 'DishController@add');
 Route::get('/payment', 'PaymentController@index');
 Route::get('/delete_reviews', 'FeedbackController@index');
 Route::get('/dish.index', 'DishController@index');
+//Route::get('/job-application', 'DishController@new');
 Auth::routes();

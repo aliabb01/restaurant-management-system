@@ -17,6 +17,7 @@ class DishController extends Controller
         return view('dish.index');
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

@@ -34,7 +34,7 @@
 
     <h4 class="text-center mt-1">
     <span>Stay up to date in the email world.</span> </h4>
-    </br >
+    </br>
     <h4 class="text-center mt-1">
     Subscribe for weekly emails with curated articles, guides, and videos to enhance your marketing tactics.
     </h4>
