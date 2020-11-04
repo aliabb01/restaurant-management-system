@@ -26,11 +26,35 @@
 </head>
 
 <body>
+
+    <style>
+        :root {
+            --laravel-red: #F05340;
+        }
+
+        .bg-cus {
+            background-color: #F05340;
+        }
+
+        #app {
+            position: relative;
+            min-height: 70vh;
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;
+        }
+    </style>
+
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-cus shadow-sm">
             <div class="container">
+                <!--<img style="border-radius:100px; background-color:white;height:100px; width:100px;" src="images/logo_transparent.png" alt="">-->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Apollon
+                    La Cozza Infuriata
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -51,12 +75,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/careers">Careers</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/report">Report a problem</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Contact Us
+                            </a>
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="/feedback">Feedback</a>
+                              <a class="dropdown-item" href="/report">Report a problem</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </li>
 
                     </ul>
 
@@ -66,7 +95,7 @@
                         <a href="{{route('show')}}" class="nav-link">
 
                             <!-- My cart page -->
-                            <span class="fas fa-shopping-cart">     
+                            <span class="fas fa-shopping-cart">
                                 My Cart ( {{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }})
                             </span>
 
@@ -109,12 +138,15 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
+
+
+        @include('layouts.footer')
     </div>
 
-    <!--Start of Tawk.to Script-->  
+    <!--Start of Tawk.to Script
     <script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -126,7 +158,7 @@
     s0.parentNode.insertBefore(s1,s0);
     })();
     </script>
-    <!--End of Tawk.to Script-->
+    End of Tawk.to Script-->
 
 </body>
 

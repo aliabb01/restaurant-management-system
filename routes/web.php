@@ -36,9 +36,14 @@ Route::get('order-reviews', function () {
     return view('/order-reviews');
 });
 
+Route::get('feedback', function () {
+    return view('/feedback');
+});
+
 Route::get('report', function () {
     return view('/report');
 });
+
 Route::get('job_application', function () {
     return view('job_application');
 });

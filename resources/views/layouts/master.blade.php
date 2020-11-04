@@ -25,10 +25,12 @@
   <title>
     @yield('title')
   </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
@@ -82,9 +84,9 @@
               <p>User Profile</p>
             </a>
           </li>
-          
-          
-         
+
+
+
         </ul>
       </div>
     </div>
@@ -102,7 +104,8 @@
             </div>
             <a class="navbar-brand" href="#pablo">Dashboard</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -128,26 +131,26 @@
                 </a>
               </li>
               <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false" v-pre>
+                  {{ Auth::user()->name }}
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/history">
-                        Order history
-                    </a>
+                  <a class="dropdown-item" href="/history">
+                    Order history
+                  </a>
 
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
+                    Logout
+                  </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                  </form>
                 </div>
-            </li>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons users_single-02"></i>
@@ -162,20 +165,20 @@
       </nav>
       <!-- End Navbar -->
       <div class="panel-header panel-header-lg pt-5">
-       
+
       </div>
       <div class="content">
-         
-  
+
+
         @yield('content')
-       <div>
-           dd
-       </div>
+        <div>
+          dd
+        </div>
       </div>
-         </div>
+    </div>
   </div>
   <!--   CoreSS JS Files   -->
-  
+
 </body>
 
 

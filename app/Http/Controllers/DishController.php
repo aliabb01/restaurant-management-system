@@ -14,7 +14,8 @@ class DishController extends Controller
      */
     public function index()
     {
-        return view('dish.index');
+        $dishes = Dish::all();
+        return view('dish.index',['dishes'=> $dishes]);
     }
 
 
