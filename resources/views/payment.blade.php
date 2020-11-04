@@ -1,3 +1,6 @@
+
+    
+
 <script src="https://js.stripe.com/v3/"></script>
 
 <form action="/charge" method="post" id="payment-form">
@@ -15,6 +18,7 @@
 
   <button>Submit Payment</button>
 </form>
+
 <style>
     /**
  * The CSS shown here will not be introduced in the Quickstart guide, but shows

@@ -2,7 +2,7 @@
 <div class="subscribe-div">
 
     <div class="text-center">
-        <button type="button" class="btn btn-subscribe" data-toggle="modal" data-target="#subscribeModal">Subscribe
+        <button type="button" class="btn btn-subscribe" style="background-color:red; " data-toggle="modal" data-target="#subscribeModal">Subscribe
             to
             get
             mails
