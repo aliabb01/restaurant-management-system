@@ -21,7 +21,7 @@ Route::get('user', ['middleware' => 'auth', function () {
     return view('welcome');
 }]);
 Route::get('admin', ['middleware' => 'isadmin', function () {
-    return view('admin');
+    return view('admin.dashboard');
 }]);
 
 Route::get('about', function () {
@@ -51,6 +51,14 @@ Route::get('/history', 'PaymentController@history');
 Route::get('/cart', 'DishController@add');
 Route::get('/payment', 'PaymentController@index');
 Route::get('/delete_reviews', 'FeedbackController@index');
-Route::get('/dish.index', 'DishController@index');
+Route::get('/dish', 'DishController@index');
+
+Route::get('/addToCart/{dish}', 'DishController@addToCart')->name('cart.add');
+Route::get('shopping', 'DishController@showCart')->name('show');
+Route::get('dashboard', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/payment/{amount}', 'DishController@checkout')->name('payment');
 //Route::get('/job-application', 'DishController@new');
 Auth::routes();

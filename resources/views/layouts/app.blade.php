@@ -63,7 +63,7 @@
                     <!-- Right Side Of Navbar -->
 
                     <ul class="navbar-nav ml-auto">
-                        <a href="/cart" class="nav-link">
+                        <a href="{{route('show')}}" class="nav-link">
 
                             <!-- My cart page -->
                             <span class="fas fa-shopping-cart">     

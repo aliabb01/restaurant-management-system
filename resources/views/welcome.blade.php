@@ -1,7 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-
+<    <div class="row">
+       
+    @foreach(App\Dish::all() as $dish)
+        <div class="col-md-4">
+        
+            <div class="card mb-2">
+                    
+                    
+                    <div class="card-body">
+                        <h5 >{{ $dish->title }}</h5>
+                        
+                         price:$ {{ $dish->price }}
+                        <a href="{{ route('cart.add',$dish)}}" class="btn btn-primary"> Buy</a>
+            </div>
+            
+        </div>
+        @endforeach
+       
+ </div>
 <style>
     .btn-subscribe {
         background-color: aqua;

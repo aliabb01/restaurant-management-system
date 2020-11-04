@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+
+class Cart 
 {
     public $items = [];
     public $totalQty ;
@@ -32,7 +32,7 @@ class Cart extends Model
         ];
 
         if( !array_key_exists($dish->id, $this->items)) {
-            $this->items[$product->id] = $item ;
+            $this->items[$dish->id] = $item ;
             $this->totalQty +=1;
             $this->totalPrice += $dish->price; 
         } else {

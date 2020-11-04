@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Cart;
 use App\Dish;
 use Illuminate\Http\Request;
 
@@ -85,6 +85,33 @@ class DishController extends Controller
     }
     public function add()
     {
-        return view('cart');
+        return view('show');
+    }
+    public function addToCart(Dish $dish) {
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = new Cart();
+        }
+        $cart->add($dish);
+        //dd($cart);
+        session()->put('cart', $cart);
+      return redirect('welcome')->with('success', 'Product was added');
+       
+    }
+    public function showCart() {
+
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = null;
+        }
+
+        return view('show', compact('cart'));
+    }
+
+    public function checkout($amount) {
+    
+            return view('/payment',compact('amount'));
     }
 }
