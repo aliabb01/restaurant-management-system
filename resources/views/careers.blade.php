@@ -271,16 +271,4 @@
 </script>
 
 
-
-
-<footer class="footer">
-    <div class="section-center">
-        <div class="social-icons">
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i> Facebook</a>  {{-- Here should be icon of facebook instead of word and for that you need some settings --}}
-             <a href="#" class="social-icon"><i class="fab fa-instagram"></i> Instagram</a>  {{-- Here should be icon of instagram instead of word and for that you need some settings --}}
-              <a href="#" class="social-icon"><i class="fab fa-twitter"></i> Twitter</a>  {{-- Here should be icon of twitter instead of word and for that you need some settings --}}
-        </div>
-        <h4 class="footer-text">&copy; <span>2020</span> <span class="company"> Apollon Restaurant </span>All rights reserved</h4>
-    </div>
-</footer>
 @endsection

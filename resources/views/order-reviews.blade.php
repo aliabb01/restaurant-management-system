@@ -1,4 +1,4 @@
-@extends('layouts.other')
+@extends('layouts.app')
 @section('content')
 <div class="container text-center pt-5 mt=5 mb-1">
  our client {{$name = Auth::user()->name}} we are happy to know your opion about the order 

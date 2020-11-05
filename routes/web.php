@@ -48,6 +48,10 @@ Route::get('job_application', function () {
     return view('job_application');
 });
 
+Route::get('my-profile', function () {
+    return view('my-profile');
+});
+
 Route::get('/welcome', 'HomeController@index');
 
 Route::get('/result', 'SearchController@index');

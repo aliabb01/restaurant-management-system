@@ -68,7 +68,7 @@ Here you can make modifaction for any dish .
                 <td>{{$i->image}}</td>
                 <td><a href="#" class="btn btn-primary"> EDit</a>
                 </td>
-                <td><a href="#" class="btn btn-danger"> EDit</a></td>
+                <td><a href="#" class="btn btn-danger"> Delte</a></td>
 
 
             </tr>

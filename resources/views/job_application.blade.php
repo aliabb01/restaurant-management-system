@@ -1,12 +1,16 @@
+@extends('layouts.app')
+@section('content')
+
+
 <h1>Job Application form</h1>
 <form>
     <h3>Personal Information</h3>
-First Name: <input type="text" name="fname" placeholder="First Name">
+    First Name: <input type="text" name="fname" placeholder="First Name">
     Last Name: <input type="text" name="lname" placeholder="Last 
     Name">
     Birth date: <input type="date" name="birthdate">
     <br><br>
-    City: <input type="text" name="city"> 
+    City: <input type="text" name="city">
     District: <input type="text" name="district">
     <br> <br>
     Street: <input type="text" name="street">
@@ -17,7 +21,9 @@ First Name: <input type="text" name="fname" placeholder="First Name">
     University: <input type="text" name="university" placeholder="Your University">
     Qualification name/main subject: <input type="text" name="qualification">
     {{-- If yes then user will be able to choose the graduation year --}}
-    <strong><p>Did you finish your university studies?</p></strong>
+    <strong>
+        <p>Did you finish your university studies?</p>
+    </strong>
     Yes <input type="radio" name="finishuni">
     No <input type="radio" name="finishuni">
 
@@ -39,7 +45,8 @@ First Name: <input type="text" name="fname" placeholder="First Name">
     {{-- END OF EXPERIENCE --}}
     <br>
     <p><strong>Phone:</strong></p>
-    Home Phone: <input type="number" name="phone number" size="30" maxlength="4" placeholder="Your phone number" min="0" step="1" oninput="validity.valid||(value='')">
+    Home Phone: <input type="number" name="phone number" size="30" maxlength="4" placeholder="Your phone number" min="0"
+        step="1" oninput="validity.valid||(value='')">
     <br> <br>
     E-mail: <input type="email" name="email" placeholder="Email address">
     Upload CV: <input type="file" name="CV">
@@ -53,6 +60,7 @@ First Name: <input type="text" name="fname" placeholder="First Name">
     Security: <input type="radio" name="position">
     <br><br>
 
-    
+
     submit: <input type="submit" name="submit">
 </form>
+@endsection

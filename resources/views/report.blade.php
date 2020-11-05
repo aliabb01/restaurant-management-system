@@ -1,4 +1,4 @@
-@extends('layouts.other')
+@extends('layouts.app')
 @section('content')
 {{-- This is Report a problem page --}}
 

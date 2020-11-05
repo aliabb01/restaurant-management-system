@@ -64,10 +64,10 @@
 <div class="container-fluid">
     <div class="row">
         @foreach(App\Dish::all() as $dish)
-        <div class="col-3">
-            <div class="card mx-auto" style="width: 18rem;">
+        <div class="col-3 col-sm">
+            <div class="card mx-auto mb-5" style="width: 18rem;">
                 <div class="card-header">
-                <img class="card-img-top" src="{{ $dish->image}}"
+                <img class="card-img-top" style="width:246; height:246;" src="{{ $dish->image}}"
                         alt="Card image cap">
                 </div>
                 <div class="card-body">

@@ -118,6 +118,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/my-profile">
+                                    My Profile
+                                </a>
                                 <a class="dropdown-item" href="/history">
                                     Order history
                                 </a>
@@ -146,7 +149,7 @@
         @include('layouts.footer')
     </div>
 
-    <!--Start of Tawk.to Script
+    <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -157,8 +160,8 @@
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
     })();
-    </script>
-    End of Tawk.to Script-->
+</script>
+    <!--End of Tawk.to Script-->
 
 </body>
 

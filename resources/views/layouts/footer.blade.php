@@ -146,7 +146,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a style="color:orange; " href="https://lacozzainfuriata.com"> La Cozza Infuriata </a>
+    <a style="color:orange; " href="/"> La Cozza Infuriata </a>
   </div>
   <!-- Copyright -->
 

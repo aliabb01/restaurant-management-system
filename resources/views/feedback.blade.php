@@ -3,7 +3,7 @@
     <!-- Default form register -->
 <form class="text-center p-5 text-light" action="#!" style="background-color:#394867;">
 
-    <p class="h3 mb-4">FeedBack </p>
+    <p class="h3 mb-4">Feedback </p>
     <p class="h4 mb-4">We are continually striving to improve our services, any comments and feedback would be gratefully appreciated! </p>
     <div class="form-row mb-4">
         <div class="col">
