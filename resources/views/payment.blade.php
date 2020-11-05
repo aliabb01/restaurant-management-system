@@ -1,5 +1,5 @@
 
-    
+    Total Amount is <strong> ($){{ $amount}}</strong>
 
 <script src="https://js.stripe.com/v3/"></script>
 

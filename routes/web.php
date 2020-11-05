@@ -51,7 +51,9 @@ Route::get('job_application', function () {
 Route::get('my-profile', function () {
     return view('my-profile');
 });
-
+Route::get('di', function () {
+    return view('dishinformation');
+});
 Route::get('/welcome', 'HomeController@index');
 
 Route::get('/result', 'SearchController@index');
@@ -61,7 +63,7 @@ Route::get('/cart', 'DishController@add');
 Route::get('/payment', 'PaymentController@index');
 Route::get('/delete_reviews', 'FeedbackController@index');
 Route::get('/dish', 'DishController@index');
-
+//Route::get('a', 'DishController@index');
 Route::get('/addToCart/{dish}', 'DishController@addToCart')->name('cart.add');
 Route::get('shopping', 'DishController@showCart')->name('show');
 Route::get('dashboard', function () {
@@ -69,5 +71,8 @@ Route::get('dashboard', function () {
 });
 
 Route::get('/payment/{amount}', 'DishController@checkout')->name('payment');
+Route::get('/dishinformation/{id}','DishController@edit1');
+
+
 //Route::get('/job-application', 'DishController@new');
 Auth::routes();

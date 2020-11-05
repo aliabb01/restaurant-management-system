@@ -95,8 +95,9 @@
                         <a href="{{route('show')}}" class="nav-link">
 
                             <!-- My cart page -->
+                            My Cart
                             <span class="fas fa-shopping-cart">
-                                My Cart ( {{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }})
+                                ( {{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }})
                             </span>
 
                         </a>

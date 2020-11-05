@@ -81,6 +81,8 @@
 
                     <div class="collapse" id="description{{$dish->id}}">
                         <h5>{{ $dish->Description }}</h5>
+                        <a href="/dishinformation/{{$dish->id}}" class="btn btn danger"
+                            > See more</a>
                     </div>
 
 

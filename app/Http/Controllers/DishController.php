@@ -37,7 +37,15 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dishes=new Dish;
+        $dishes->id=$request->input('id');
+        $dishes->title=$request->input('title');
+        $dishes->Price=$request->input('Price');
+       
+        //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+        $dishes->save();
+    // return ("save it");
+       return redirect('dash');
     }
 
     /**
@@ -59,9 +67,14 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+        $dishes=Dish::find($dish);
+     return view('dishinformation',compact('dishes','dish'));
     }
-
+    public function edit1(Request $request, $dish)
+    {
+        $dishes=Dish::findOrFail($dish);
+     return view('dishinformation')->with('dishes',$dishes);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -69,9 +82,9 @@ class DishController extends Controller
      * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dish $dish)
+    public function update(Request $request,  $dish)
     {
-        //
+      //
     }
 
     /**
