@@ -2,6 +2,7 @@
 
 
 @section('content')
+
 {{--}}
 <div class="container">
 
@@ -40,9 +41,8 @@
 <br>
 
 Here you can make modifaction for any dish .
-<a href="#" class="btn btn-success">Create Dish</a>
+<a href="dish/create" class="btn btn-success">Create Dish</a>
 <div>
-
     <br>
     <table class="table table-bordered table-dark">
         <thead>
@@ -53,6 +53,7 @@ Here you can make modifaction for any dish .
                 <th scope="col">price</th>
                 <th scope="col">calorie</th>
                 <th scope="col">image</th>
+                <th scope="col">type</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -66,15 +67,24 @@ Here you can make modifaction for any dish .
                 <td>{{$i->Price}}</td>
                 <td>{{$i->Calorie}}</td>
                 <td>{{$i->image}}</td>
-                <td><a href="#" class="btn btn-primary"> EDit</a>
+                <td>{{$i->Category_name}}</td>
+                <td><a href="/dish/edit/{{$i->id}}" class="btn btn-primary"> EDit</a>
                 </td>
-                <td><a href="#" class="btn btn-danger"> Delte</a></td>
+                <td><a href="/dish/delete/{{$i->id}}" class="btn btn-danger"> Delte</a></td>
 
 
             </tr>
+
+            
             @endforeach
         </tbody>
     </table>
 
 </div>
+
+
+
+
+
+
 @endsection

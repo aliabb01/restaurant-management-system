@@ -13,7 +13,7 @@ class CreateDishCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dishcategories', function (Blueprint $table) {
+        Schema::create('dish_categories', function (Blueprint $table) {
             $table->id();
             $table->string('Category_name');
             $table->integer('Amount');
@@ -28,6 +28,6 @@ class CreateDishCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dishcategories');
+        Schema::dropIfExists('dish_categories');
     }
 }

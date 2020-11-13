@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Cart;
 use App\Dish;
+use App\Dish_Category;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -15,6 +16,7 @@ class DishController extends Controller
     public function index()
     {
         $dishes = Dish::all();
+        
         return view('dish.index',['dishes'=> $dishes]);
     }
 
@@ -26,7 +28,11 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        $dishcategories = Dish_Category::all();
+      
+   
+       /// return view('dish.create',['dishcategories'=>$dishcategories]);
+     return view('dish.create',compact('dishcategories'));
     }
 
     /**
@@ -38,14 +44,18 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $dishes=new Dish;
+        
         $dishes->id=$request->input('id');
         $dishes->title=$request->input('title');
+        $dishes->Description=$request->input('Description');
         $dishes->Price=$request->input('Price');
-       
+        $dishes->Calorie=$request->input('Calorie');
+        $dishes->image=$request->input('image');
+        $dishes->Category_name=$request->input('Category_name');
         //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
         $dishes->save();
     // return ("save it");
-       return redirect('dash');
+       return redirect('dish');
     }
 
     /**
@@ -54,9 +64,10 @@ class DishController extends Controller
      * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function show(Dish $dish)
+    public function show(Request $request, $dish)
     {
-        //
+        $dishes=Dish::findOrFail($dish);
+        return view('dish.delete')->with('dishes',$dishes);
     }
 
     /**
@@ -65,10 +76,10 @@ class DishController extends Controller
      * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dish $dish)
+    public function edit(Request $request, $dish)
     {
-        $dishes=Dish::find($dish);
-     return view('dishinformation',compact('dishes','dish'));
+         $dishes=Dish::findOrFail($dish);
+        return view('dish.edit')->with('dishes',$dishes);
     }
     public function edit1(Request $request, $dish)
     {
@@ -84,7 +95,33 @@ class DishController extends Controller
      */
     public function update(Request $request,  $dish)
     {
-      //
+      
+     ///   $cities = city::findOrFail($city);
+$request->validate([
+    'id'=> 'required',
+    'title'=> 'required',
+    'Description'=> 'required',
+    'Price'=> 'required',
+    'Category_name'=> 'required'
+]);
+     //   $cities->update($request->all());
+      $cit=Dish::find($dish);
+     // $cities=city::all();
+       $cit->id=$request['id'];
+       $cit->title=$request['title'];
+       $cit->Description=$request['Description'];
+       $cit->Price=$request['Price'];
+       $cit->Category_name=$request['Category_name'];
+    //   DB::update('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+ $cit->save();
+   //
+       //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+   ///   $cities->save();
+        //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+   // $cities->save();
+
+  
+       return redirect('dish');
     }
 
     /**
@@ -93,9 +130,11 @@ class DishController extends Controller
      * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dish $dish)
+    public function destroy( $dish)
     {
-        //
+        $dishes=Dish::find($dish);
+        $dishes->delete();
+            return redirect('dish');
     }
     public function add()
     {

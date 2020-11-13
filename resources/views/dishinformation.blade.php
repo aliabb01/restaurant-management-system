@@ -7,7 +7,7 @@
     <br>
    
   <div class="container  infor pb-3 mb-3">
-    <form class=text-center>
+    <form class="text-center"  >
      <h3 style="text-align: center;"> Here you can see more detalis about the dish: {{$dishes->title}}</h3>
      <div class="">
      <img style="width:250px; height:250px;" src="{{$dishes->image}}" alt="">

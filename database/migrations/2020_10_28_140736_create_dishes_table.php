@@ -22,7 +22,7 @@ class CreateDishesTable extends Migration
             $table->integer('Calorie');
             $table->string('image');
             $table->unsignedBigInteger('Category_name')->null();
-            $table->foreign('Category_name')->references('id')->on('dishcategories');
+            $table->foreign('Category_name')->references('id')->on('dish_categories');
             $table->timestamps();
            
         });
