@@ -48,9 +48,13 @@ Route::get('job_application', function () {
     return view('job_application');
 });
 
-Route::get('my-profile', function () {
-    return view('my-profile');
-});
+Route::post('/uplade','Usercontroller@updateavatar');
+Route::get('my-profile','Usercontroller@index');
+Route::get('prodel/{id}','Usercontroller@show');
+Route::delete('/del/{id}','Usercontroller@destroy');
+
+Route::get('/feedback','FeedbackController@index1');
+Route::post('/store','FeedbackController@store');
 //Route::get('di', function () {
   //  return view('dishinformation');
 //});

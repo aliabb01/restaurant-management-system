@@ -117,8 +117,13 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
+                          
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="text-center ml-4" style="width:60px; height:60px;">
+                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}"
+                                        style="border-radius:50%;width:60px; height:60px;">
+                                </div>
                                 <a class="dropdown-item" href="/my-profile">
                                     My Profile
                                 </a>

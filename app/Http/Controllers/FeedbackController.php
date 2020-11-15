@@ -17,7 +17,11 @@ class FeedbackController extends Controller
     {
         return view ('delete_reviews');
     }
-
+    public function index1()
+    {
+    $feeds = Feedback::all();
+    return view ('feedback',['feeds'=> $feeds]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +29,7 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        //
+        return view ('feedback');
     }
 
     /**
@@ -36,7 +40,15 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $feeds=new Feedback;
+        $feeds->body=$request->input('body');
+      //  $feeds->body=$request->input('body');
+       //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+   
+      $feeds->save();
+   // return ("save it");
+      return redirect('feedback');
+    
     }
 
     /**
