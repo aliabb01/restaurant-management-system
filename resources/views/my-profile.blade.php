@@ -19,13 +19,13 @@
     margin-right: 2%;
   }
 </style>
-<div class="myprofile-main">
-  <div class="container myprofile pt-5 pb-5">
-    <h2 class="my-set text-center">my Profile </h2>
+<div class="myprofile-main " style="color:aliceblue;background-image: url('https://www.thereadinglists.com/wp-content/uploads/2017/11/the-best-cook-books-for-beginners1.png');background-repeat:no-repeat;background-size:cover;">
+  <div class="container myprofile text-center pt-5 pb-5">
+    <h2 class="my-set text-center" >my Profile </h2>
     <hr style="border-color:black;">
     <tr>
       <p>
-        <b class="text-left">profile picture  :</b>
+        <b class="text-left" >profile picture  :</b>
         <br>
         <img src="/uploads/avatars/{{ Auth::user()->avatar }}"
           style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
@@ -39,13 +39,16 @@
         </form>
      
       </p>
-
+     
+      <div class="card " style="width:30%;background-color:lightblue;  margin-left: 35%;">
+        <div class=" container ">
       <p>
         <b>id:</b>
         <br>
         <input class="input" type="number" value="{{Auth::user()->id}}" readonly>
       </p>
 
+     
 
       <p>
         <b>name</b>
@@ -58,60 +61,50 @@
         <br>
         <input class="input" type="text" value="{{Auth::user()->email}}" readonly>
       </p>
+      <p>
+      <b>city :</b>
+      <br>
+      <input class="input" type="text" value="{{Auth::user()->city}}" readonly>
+    </p>
+      <p>
+        <b>street :</b>
+        <br>
+      <input class="input" type="text" value="{{Auth::user()->street}}" readonly>
+      <br>
+    </p>
+    <p>
+        <b>zip_code :</b>
+        <br>
+      <input class="input" type="text" value="{{Auth::user()->zip_code}}" readonly>
+    </p>
+      <p>
+        <b>apartment_NO :</b>
+        <br>
+      <input class="input" type="text" value="{{Auth::user()->apartment_NO}}" readonly>
+      </p>
+      <br>
+      <p>
+        <b>building_NO :</b>
+        <br>
+      <input class="input" type="text" value="{{Auth::user()->building_NO}}" readonly>
+      </p>
+      <br>
+      <p>
+        <b>district :</b>
+        <br>
+      <input class="input" type="text" value="{{Auth::user()->district}}" readonly>
+      </p>
+    </div>
+    </div>
       @foreach ($users as $i)
-         
       @endforeach
     
-<button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal" >Address details</button>
+     
 <br>
-    <a href="prodel/{{$i->id}}" class="btn btn-secondary">edit</a>
-    <a href="prodel/{{$i->id}}" class="btn btn-danger">Delete</a>
+    <a href="proedt/{{$i->id}}" class="btn btn-secondary mt-2">edit</a>
+    <a href="prodel/{{$i->id}}" class="btn btn-danger mt-2">Delete</a>
     </tr>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Address</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">city:</label>
-                  <input type="text" class="form-control" id="recipient-name">
-                </div>
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">street:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                  </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">zip_code:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                  </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Apartment.NO:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                  </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Building.NO:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                  </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">district:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                  </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-          </div>
-        </div>
-      </div>
-  
+   
     {{--
     <!--<td> {{link_to_route('useres.edit','Edit',$i,['class'=>'btn btn-success edit'])}}</td>-->
     <button class="btn btn-primary" style="width:10%; font-size:16px;" data-toggle="modal"

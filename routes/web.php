@@ -82,5 +82,8 @@ Route::post('/store1','DishController@store');
 Route::get('dish/create','DishController@create');
 Route::delete('/del2/{id}','DishController@destroy');
 Route::get('/dish/delete/{id}','DishController@show');
+Route::get('/proedt/{id}','UserController@edit');
+Route::put('/upd3/{id}','UserController@update');
+Route::post('/store',' UserController@store');
 //Route::get('/job-application', 'DishController@new');
 Auth::routes();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use App\User;
+
 use Image;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,55 @@ class Usercontroller extends Controller
         $users =User::all();
         return view('my-profile',['users'=>$users]);
     }
+   
+
+    public function edit(Request $request, $user)
+    {
+         $users=User::findOrFail($user);
+        return view('proedt')->with('users',$users);
+    }
     //
+    public function update(Request $request,   $user)
+    {
+      
+     ///   $cities = city::findOrFail($city);
+$request->validate([
+    'id'=> 'required',
+    'name'=> 'required',
+    'email'=> 'required',
+    'city'=> 'required',
+    'street'=> 'required',
+    'zip_code'=> 'required',
+    'apartment_NO'=> 'required',
+    'building_NO'=> 'required',
+    'district'=> 'required'
+
+]);
+     //   $cities->update($request->all());
+      $cit2=User::find($user);
+     // $cities=city::all();
+       $cit2->id=$request['id'];
+       $cit2->name=$request['name'];
+       $cit2->email=$request['email'];
+       $cit2->city=$request['city'];
+       $cit2->street=$request['street'];
+       $cit2->zip_code=$request['zip_code'];
+       $cit2->apartment_NO=$request['apartment_NO'];
+       $cit2->building_NO=$request['building_NO'];
+       $cit2->district=$request['district'];
+    //   DB::update('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+ $cit2->save();
+ 
+
+ //
+       //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+   ///   $cities->save();
+        //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+   // $cities->save();
+
+  
+       return redirect('my-profile');
+    }
     public function updateavatar(Request $request){
 
     	// Handle the user upload of avatar
