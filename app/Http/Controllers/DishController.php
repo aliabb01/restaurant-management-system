@@ -102,7 +102,7 @@ $request->validate([
     'title'=> 'required',
     'Description'=> 'required',
     'Price'=> 'required',
-    'Category_name'=> 'required'
+    'Calorie'=> 'required'
 ]);
      //   $cities->update($request->all());
       $cit=Dish::find($dish);
@@ -111,7 +111,7 @@ $request->validate([
        $cit->title=$request['title'];
        $cit->Description=$request['Description'];
        $cit->Price=$request['Price'];
-       $cit->Category_name=$request['Category_name'];
+       $cit->Calorie=$request['Calorie'];
     //   DB::update('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
  $cit->save();
    //
@@ -130,6 +130,31 @@ $request->validate([
      * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
+    public function destroy1(Dish $dish)
+    {
+        $cart = new Cart(session()->get('cart'));
+        $cart->remove($dish->id);
+
+        if ($cart->totalQty <= 0) {
+            session()->forget('cart');
+        } else {
+            session()->put('cart', $cart);
+        }
+
+        return redirect()->route('show')->with('success', 'Product was removed');
+    }
+    public function update1(Request $request, Dish $dish)
+    {
+        $request->validate([
+            'qty' => 'required|numeric|min:1'
+        ]);
+
+        $cart = new Cart(session()->get('cart'));
+        $cart->updateQty($dish->id, $request->qty);
+        session()->put('cart', $cart);
+        return redirect()->route('show')->with('success', 'Product updated');
+    }
+
     public function destroy( $dish)
     {
         $dishes=Dish::find($dish);
@@ -167,4 +192,5 @@ $request->validate([
     
             return view('/payment',compact('amount'));
     }
+
 }

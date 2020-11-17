@@ -1,12 +1,16 @@
 @extends('layouts.app')
 @section('content')
-<div class="container text center" style="background-image: url('');background-repeat:no-repeat;background-size:cover;">
+<div class="conatiner" style=";"> 
 <form action="{{'/upd3/'. Auth::user()->id}}" method="POST" >
    
     @method('PUT')
           <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
          
-        <h3 style="text-align: center;"> Dear {{Auth::user()->name}} you can make edit and the edtion will be display in your profile  </h3>
+          <div class="form-group">
+            <label for="id">id</label>
+          <input type="text" class="form-control" name="id" value="{{Auth::user()->id}}">
+          </div>
+          <br>
           <div class="form-group">
             <label for="name">name</label>
             <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}">

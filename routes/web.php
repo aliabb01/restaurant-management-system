@@ -85,5 +85,11 @@ Route::get('/dish/delete/{id}','DishController@show');
 Route::get('/proedt/{id}','UserController@edit');
 Route::put('/upd3/{id}','UserController@update');
 Route::post('/store',' UserController@store');
-//Route::get('/job-application', 'DishController@new');
+Route::delete('/dishes/{dish}', 'DishController@destroy1')->name('cart.remove');
+Route::put('/dishes/{dish}', 'DishController@update1')->name('cart.update');
+
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 Auth::routes();
+//Route::get('/job-application', 'DishController@new');
+
