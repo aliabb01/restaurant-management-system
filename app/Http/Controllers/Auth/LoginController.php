@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use User;
+use App\User;
+use Auth;
+use Exception;
+use Socialite;
+use App\SocialProvider;
 
 class LoginController extends Controller
 {
@@ -44,5 +48,50 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        try
+        {
+            $socialUser = Socialite::driver($provider)->user();
+        }
+        catch(\Exception $e)
+        {
+            return redirect('/welcome');
+        }
+        //check if we have logged provider
+        $socialProvider = SocialProvider::where('provider_id',$socialUser->getId())->first();
+        if(!$socialProvider)
+        {
+            //create a new user and provider
+            $user = User::firstOrCreate(
+                ['email' => $socialUser->getEmail()],
+                ['name' => $socialUser->getName()],
+                ['password' => $socialUser->getName()]
+            );
+
+            $user->socialProviders()->create(
+                ['provider_id' => $socialUser->getId(), 'provider' => $provider]
+            );
+
+        }
+        else
+            $user = $socialProvider->user;
+
+        auth()->login($user);
+
+        return redirect('/welcome');
+
     }
 }

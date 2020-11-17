@@ -10,13 +10,28 @@
                             <div class="card mb-2">
                                 <div class="card-body">
                                     <h5 class="card-title">
+                                    
                                     {{ $dish['title'] }}
                                     </h5>
                                     <div class="card-text">
                                         ${{ $dish['price'] }}
-                                        <a href="#" class="btn btn-danger btn-sm ml-4">Remove</a>
-                                        <input type="text" name="qty" id="qty" value={{ $dish['qty']}}>
-                                        <a href="#" class="btn btn-secondary btn-sm">Change</a>  
+                                        
+                                        
+                                        <form action="{{ route('cart.update',$dish['id'])}}" method="post">
+                                            @csrf
+                                            @method('put')
+                                            <input type="text" name="qty" id="qty" value={{ $dish['qty']}}>
+                                            <button type="submit" class="btn btn-secondary btn-sm">Change</button>
+                
+                                        </form> 
+                                        <form action="{{ route('cart.remove', $dish['id'] )}}" method="post">
+                                       
+                                            @method('delete')
+                                            <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+                                            <button type="submit" class="btn btn-danger btn-sm ml-4 float-right" style="margin-top: -30px;">Remove</button>
+                
+                
+                                        </form>
                                     </div>
                                 </div>
                             </div>

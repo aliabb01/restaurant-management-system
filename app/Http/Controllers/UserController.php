@@ -27,18 +27,7 @@ class Usercontroller extends Controller
     {
       
      ///   $cities = city::findOrFail($city);
-$request->validate([
-    'id'=> 'required',
-    'name'=> 'required',
-    'email'=> 'required',
-    'city'=> 'required',
-    'street'=> 'required',
-    'zip_code'=> 'required',
-    'apartment_NO'=> 'required',
-    'building_NO'=> 'required',
-    'district'=> 'required'
 
-]);
      //   $cities->update($request->all());
       $cit2=User::find($user);
      // $cities=city::all();
