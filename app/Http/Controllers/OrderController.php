@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Feedback;
-use App\User;
-use App\Review;
+use App\Order;
+
 use Illuminate\Http\Request;
 
-class FeedbackController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +15,15 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        return view ('delete_reviews');
+        $orders = auth()->user()->orders;
+        
+        $carts = $orders->transform( function( $cart, $key) {
+            return unserialize($cart->cart);
+        });
+        //dd($carts);
+        return view('history')->with('carts', $carts);
     }
-    public function index1()
-    {
-    $feeds = Feedback::all();
-    return view ('feedback',['feeds'=> $feeds]);
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -30,8 +31,7 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view ('feedback',compact('users'));
+        //
     }
 
     /**
@@ -42,25 +42,16 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        $feeds=new Feedback;
-        $feeds->user_id=$request->input('user_id');
-        $feeds->body=$request->input('body');
-      //  $feeds->body=$request->input('body');
-       //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
-   
-      $feeds->save();
-   // return ("save it");
-      return redirect('feedback');
-    
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Feedback  $feedback
+     * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Feedback $feedback)
+    public function show(Order $order)
     {
         //
     }
@@ -68,10 +59,10 @@ class FeedbackController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Feedback  $feedback
+     * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Feedback $feedback)
+    public function edit(Order $order)
     {
         //
     }
@@ -80,10 +71,10 @@ class FeedbackController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Feedback  $feedback
+     * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Feedback $feedback)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -91,10 +82,10 @@ class FeedbackController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Feedback  $feedback
+     * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Feedback $feedback)
+    public function destroy(Order $order)
     {
         //
     }

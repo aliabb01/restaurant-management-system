@@ -54,7 +54,7 @@ Route::get('prodel/{id}','Usercontroller@show');
 Route::delete('/del/{id}','Usercontroller@destroy');
 
 Route::get('/feedback','FeedbackController@index1');
-Route::post('/store','FeedbackController@store');
+Route::post('/feedback-store','FeedbackController@store');
 //Route::get('di', function () {
   //  return view('dishinformation');
 //});
@@ -62,7 +62,7 @@ Route::get('/welcome', 'HomeController@index');
 
 Route::get('/result', 'SearchController@index');
 
-Route::get('/history', 'PaymentController@history');
+Route::get('/history', 'OrderController@index');
 Route::get('/cart', 'DishController@add');
 Route::get('/payment', 'PaymentController@index');
 Route::get('/delete_reviews', 'FeedbackController@index');
@@ -90,6 +90,7 @@ Route::put('/dishes/{dish}', 'DishController@update1')->name('cart.update');
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+Route::post('/charge', 'DishController@charge')->name('cart.charge');
 Auth::routes();
 //Route::get('/job-application', 'DishController@new');
 

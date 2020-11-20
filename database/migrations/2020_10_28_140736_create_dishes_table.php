@@ -15,7 +15,6 @@ class CreateDishesTable extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->BigIncrements('id');
-           
             $table->string('title');
             $table->double('Price');
             $table->string('Description');

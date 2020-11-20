@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\Dish;
 use App\Dish_Category;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -191,6 +192,32 @@ $request->validate([
     public function checkout($amount) {
     
             return view('/payment',compact('amount'));
+    }
+    public function charge(Request $request) {
+
+        //dd($request->stripeToken);
+        $charge = Stripe::charges()->create([
+            'currency' => 'USD',
+            'source' => $request->stripeToken,
+            'amount'   => $request->amount,
+            'description' => ' Test from la cozza'
+        ]);
+
+        $chargeId = $charge['id'];
+        $chargeId = $charge['id'];
+
+        if ($chargeId) {
+            // save order in orders table ...
+
+            auth()->user()->orders()->create([
+                'cart' => serialize( session()->get('cart'))
+            // clearn cart 
+            ]);
+            session()->forget('cart');  
+            return redirect('/welcome')->with('success', " Payment was done. Thanks");
+        } else {
+            return redirect()->back();
+        }
     }
 
 }

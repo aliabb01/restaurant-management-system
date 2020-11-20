@@ -7,7 +7,7 @@ use App\User;
 use Image;
 use Illuminate\Http\Request;
 
-class Usercontroller extends Controller
+class UserController extends Controller
 {
     
     public function index()
@@ -19,7 +19,7 @@ class Usercontroller extends Controller
 
     public function edit(Request $request, $user)
     {
-         $users=User::findOrFail($user);
+        $users=User::findOrFail($user);
         return view('proedt')->with('users',$users);
     }
     //
@@ -29,7 +29,7 @@ class Usercontroller extends Controller
      ///   $cities = city::findOrFail($city);
 
      //   $cities->update($request->all());
-      $cit2=User::find($user);
+       $cit2=User::find($user);
      // $cities=city::all();
        $cit2->id=$request['id'];
        $cit2->name=$request['name'];
@@ -61,8 +61,10 @@ class Usercontroller extends Controller
     		$filename = time() . '.' . $avatar->getClientOriginalExtension();
     		Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
 
-    		$user = Auth::user();
-    		$user->avatar = $filename;
+            $user = Auth::user();
+            
+
+            $user->avatar = $filename;
     		$user->save();
     	}
 
@@ -80,7 +82,6 @@ class Usercontroller extends Controller
     {
         $users=User::find($user);
         $users->delete();
-        
-            return view('welcome');
+        return view('welcome');
     }
 }

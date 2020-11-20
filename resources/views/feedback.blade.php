@@ -1,26 +1,28 @@
 @extends('layouts.app')
 @section('content')
     <!-- Default form register -->
-<form class="text-center p-5 text-light" action="/store" method="POST"  style="background-color:#394867;">
+<form class="text-center p-5 " action="/feedback-store" method="POST"  style="color:lightblue;background-image: url('https://as2.ftcdn.net/jpg/01/85/12/83/500_F_185128326_NzhHG8iawn15nNxiEDcoAkwPHSBUMjIZ.jpg');background-repeat:no-repeat;background-size:cover;">
     @csrf
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
     <p class="h3 mb-4">Feedback </p>
-    <p class="h4 mb-4">We are continually striving to improve our services, any comments and feedback would be gratefully appreciated! </p>
+
+    <p class="h4 mb-4 pt-5">We are continually striving to improve our services, any comments and feedback would be gratefully appreciated! </p>
     <div class="form-row mb-4">
         <div class="col">
             <!-- First name -->
+           
+            <input type="hidden"  id="defaultRegisterFormFirstName" class="form-control" placeholder="First name" name="user_id" value="{{ Auth::user()->id}}" style="width:60px;">
+            <br>
             
-            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
         </div>
         
     </div>
-
+  
     <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
 
-    <textarea  class="form-control mb-4" cols="30" rows="10"  placeholder="Feedback"  name="body">
-       </textarea>
-    <button  > Submit</button>
+    <textarea name="body" id="" cols="80" rows="10" style="resize: none;"  required></textarea>
+    <br>
+    <button  class="btn btn-primary border text-light" > Submit</button>
 
    
 
@@ -52,4 +54,7 @@
     </div>
   </div>
   @endforeach
+
+  <style>
+  </style>
 @endsection

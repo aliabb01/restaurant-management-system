@@ -40,4 +40,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(SocialProvider::class);
     }
+    public function Orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 }

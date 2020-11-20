@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSocialProvidersTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateSocialProvidersTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_providers', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            
             $table->unsignedBigInteger('user_id')->null();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('provider_id');
-            $table->string('provider');
+            
+            $table->string('bot_name');
+            $table->longText('body');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateSocialProvidersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social_providers');
+        Schema::dropIfExists('messages');
     }
 }

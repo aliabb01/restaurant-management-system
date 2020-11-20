@@ -34,4 +34,7 @@ return [
         'client_secret' => 'kg9nDgcQPfx7fpIEpKGkVrHm',
         'redirect' => 'http://localhost:8000/auth/google/callback',
     ],
+    'stripe' => [
+        'secret' => 'sk_test_KgWGfjYK5D44EOt5kY98tpb400yZi3LTh2',
+    ],
 ];
