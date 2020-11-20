@@ -91,6 +91,15 @@ Route::put('/dishes/{dish}', 'DishController@update1')->name('cart.update');
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 Route::post('/charge', 'DishController@charge')->name('cart.charge');
+
+
+Route::get('p', function () {
+    return view('payment-email');
+});
+Route::get('/invoice', function(){
+    $pdf = PDF::loadView('invoice');
+    return $pdf->download('invoice.pdf');
+});
 Auth::routes();
 //Route::get('/job-application', 'DishController@new');
 

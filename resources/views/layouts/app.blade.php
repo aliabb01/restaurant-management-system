@@ -186,8 +186,9 @@
 
         <main class="">
             @yield('content')
+          
         </main>
-
+        @include('sweetalert::alert')
 
         @include('layouts.footer')
     </div>

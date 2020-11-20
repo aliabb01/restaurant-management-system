@@ -214,10 +214,12 @@ $request->validate([
             // clearn cart 
             ]);
             session()->forget('cart');  
-            return redirect('/welcome')->with('success', " Payment was done. Thanks");
+            return redirect('/welcome')->with('success1', " Payment was done. Thanks");
         } else {
             return redirect()->back();
         }
     }
+  
+
 
 }

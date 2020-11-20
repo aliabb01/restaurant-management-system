@@ -153,6 +153,14 @@
 
 </div>-->
 
+@if (session('success1'))
+{{
+Mail::send('payment-email',[],function($m){
+  $m->to('user@gmail.com')->subject('Apollon');
+  return view ('welcome');
+})
+}}
+@endif
 
 
 @endsection

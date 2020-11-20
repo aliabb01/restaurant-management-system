@@ -19,6 +19,7 @@
   </div>
 
   <button>Submit Payment</button>
+  <p id="loading" style="display:none;"> please wait...</p>
 </form>
 
 <style>
@@ -121,6 +122,10 @@ function stripeTokenHandler(token) {
   form.appendChild(hiddenInput);
 
   // Submit the form
+  var loading = document.getElementById('loading')
+                loading.style.display = "block";
+            
+
   form.submit();
 }
 </script>
