@@ -50,7 +50,7 @@
     }
 
     .btn-collapse-google {
-        background-color: var(--laravel-red);
+        background-color: var(--primary-red);
         border-radius: 25px;
         margin-left: 47%;
     }

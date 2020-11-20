@@ -44,12 +44,12 @@
             min-height: 70vh;
         }
 
-        .logo-name{
-            font-size:18px;
+        .logo-name {
+            font-size: 18px;
         }
 
-        .nav-item{
-            font-size:16px;
+        .nav-item {
+            font-size: 16px;
         }
 
         /* bottom-line is the bottom border that is visible when you hover on an nav-item */
@@ -64,9 +64,10 @@
             /* Change this to absolute/relative depending on nav-link:hover style */
             width: 0px;
             height: 2px;
-            left:50%;
+            left: 50%;
             bottom: 0;
-            background-color: white;  /* color of the bottom-border */
+            background-color: white;
+            /* color of the bottom-border */
             transition: all ease-in-out .3s;
             margin-bottom: 3px;
         }
@@ -74,6 +75,13 @@
         .bottom-line:hover::after {
             width: 99%;
             left: 0;
+        }
+
+        .dropdown-item-rounded {
+            border-radius: 25px;
+            -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.1);
         }
 
         #footer {
@@ -115,11 +123,14 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Contact Us
                             </a>
-                            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/feedback">Feedback</a>
-                                <a class="dropdown-item" href="/report">Report a problem</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item bg-danger text-light mb-2 dropdown-item-rounded"
+                                    href="/feedback">Feedback</a>
+                                <a class="dropdown-item bg-danger text-light mb-2 dropdown-item-rounded"
+                                    href="/report">Report a problem</a>
+
+                                <a class="dropdown-item bg-danger text-light mb-2 dropdown-item-rounded"
+                                    href="#">Something else here</a>
                             </div>
                         </li>
 
@@ -150,25 +161,28 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle ml-1" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <span><img class="mr-1" src="/uploads/avatars/{{ Auth::user()->avatar }}"
+                                        style="border-radius:50%;width:25px; height:25px;"></span>
                                 {{ Auth::user()->name }}
+
+
                             </a>
 
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <div class="text-center ml-4" style="width:60px; height:60px;">
-                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}"
-                                        style="border-radius:50%;width:60px; height:60px;">
-                                </div>
-                                <a class="dropdown-item" href="/my-profile">
+                            <div class="dropdown-menu dropdown-menu-right bg-transparent border-0" aria-labelledby="navbarDropdown">
+                                {{--<div class="text-center" style="width:60px; height:60px;">
+                                    
+                                </div>--}}
+                                <a class="dropdown-item dropdown-item-rounded bg-primary text-light mb-2" href="/my-profile">
                                     My Profile
                                 </a>
-                                <a class="dropdown-item" href="/history">
+                                <a class="dropdown-item dropdown-item-rounded bg-primary text-light mb-2" href="/history">
                                     Order history
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item dropdown-item-rounded bg-danger text-light mb-2" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Logout
                                 </a>

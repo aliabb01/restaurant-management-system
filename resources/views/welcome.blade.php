@@ -5,7 +5,7 @@
 <style>
     .company {
         font-family: 'Source Sans Pro', sans-serif;
-        font-size:25px;
+        font-size: 25px;
     }
 
     .btn-subscribe {
@@ -33,6 +33,30 @@
         padding-left: 100px;
         text-align: center;
     }
+
+    .card-img-top {
+        transition: 0.5s;
+    }
+
+    .card-img-top:hover {
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
+
+    .card {
+        transition: 0.5s;
+    }
+
+    .card:hover {
+        -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
+        transition: 0.5s;
+    }
+
+    .card:hover .card-header {
+        background-color: aqua;
+    }
 </style>
 
 <div class="container main-cont pt-4">
@@ -51,7 +75,7 @@
             <button class="btn pt-2 pb-2 search-btn" type="submit"><i class="fa fa-search "></i></button>
         </form>
     </div>
-   
+
     <!--<div class="container pt-1 pb-2 my-3  bg-dark su" id="">
 
             <h4 class="text-center mt-1">
@@ -68,34 +92,37 @@
     <div class="row">
         @foreach(App\Dish::all() as $dish)
         <div class="col-3 col-sm">
-            <div class="card mx-auto mb-5" style="width: 18rem;">
-                <div class="card-header">
-                    <img class="card-img-top" style="width:246; height:246;" src="{{ $dish->image}}"
-                        alt="Card image cap">
-                </div>
-                <div class="card-body">
-                    <h5>{{ $dish->title }}</h5>
-                    <h6>Price ($): {{ $dish->Price }}</h6>
-
-                    <a style="border-radius:150px; border:0px;" class="btn btn-lg btn-outline-danger mb-3"
-                        data-toggle="collapse" href="#description{{$dish->id}}" role="button" aria-expanded="false"
-                        aria-controls="description{{$dish->id}}">
-                        <span><i class="fas fa-chevron-down"></i><span>
-                    </a>
-
-                    <div class="collapse" id="description{{$dish->id}}">
-                        <h5>{{ $dish->Description }}</h5>
-                        <a href="/dishinformation/{{$dish->id}}" class="btn btn danger"> See more</a>
+            <a style="color:inherit; text-decoration: none;" href="/dishinformation/{{$dish->id}}">
+                <div class="card mx-auto mb-5" style="width: 18rem;">
+                    <div class="card-header">
+                        <img class="card-img-top" style="width:246; height:246;" src="{{ $dish->image}}"
+                            alt="Card image cap">
                     </div>
+                    <div class="card-body">
+                        <h5>{{ $dish->title }}</h5>
+                        <h6>Price ($): {{ $dish->Price }}</h6>
+
+                        <a style="border-radius:150px; border:0px;" class="btn btn-lg btn-outline-danger mb-3"
+                            data-toggle="collapse" href="#description{{$dish->id}}" role="button" aria-expanded="false"
+                            aria-controls="description{{$dish->id}}">
+                            <span><i class="fas fa-chevron-down"></i><span>
+                        </a>
+
+                        <div class="collapse" id="description{{$dish->id}}">
+                            <h5>{{ $dish->Description }}</h5>
+
+                        </div>
 
 
-                    <div class="text-center">
-                        <a href="{{ route('cart.add',$dish)}}" class="btn btn-danger"> Buy</a>
+                        <div class="text-center">
+                            <a href="{{ route('cart.add',$dish)}}" class="btn btn-danger"> Buy</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
+
         <!--<div class="col-3">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="..." alt="Card image cap">
