@@ -64,6 +64,7 @@
             /* Change this to absolute/relative depending on nav-link:hover style */
             width: 0px;
             height: 2px;
+            /* replace left with bottom for bottom animation*/
             left: 50%;
             bottom: 0;
             background-color: white;
@@ -74,6 +75,7 @@
 
         .bottom-line:hover::after {
             width: 99%;
+            /* replace left with bottom for bottom animation*/
             left: 0;
         }
 
@@ -124,6 +126,8 @@
                                 Contact Us
                             </a>
                             <div class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
+                                @if (Auth::guest())  {{-- Checking for user logged in or not, for contact us dropdown--}}
+                                @else
                                 <a class="dropdown-item bg-danger text-light mb-2 dropdown-item-rounded"
                                     href="/feedback">Feedback</a>
                                 <a class="dropdown-item bg-danger text-light mb-2 dropdown-item-rounded"
@@ -131,6 +135,7 @@
 
                                 <a class="dropdown-item bg-danger text-light mb-2 dropdown-item-rounded"
                                     href="#">Something else here</a>
+                                @endif
                             </div>
                         </li>
 
@@ -139,7 +144,7 @@
                     <!-- Right Side Of Navbar -->
 
                     <ul class="navbar-nav ml-auto nav-item">
-                        <a href="{{route('show')}}" class="nav-link">
+                        <a href="{{route('show')}}" class="nav-link text-center">
 
                             <!-- My cart page -->
                             My Cart
@@ -171,18 +176,22 @@
                             </a>
 
 
-                            <div class="dropdown-menu dropdown-menu-right bg-transparent border-0" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right bg-transparent border-0"
+                                aria-labelledby="navbarDropdown">
                                 {{--<div class="text-center" style="width:60px; height:60px;">
                                     
                                 </div>--}}
-                                <a class="dropdown-item dropdown-item-rounded bg-primary text-light mb-2" href="/my-profile">
+                                <a class="dropdown-item dropdown-item-rounded bg-primary text-light mb-2"
+                                    href="/my-profile">
                                     My Profile
                                 </a>
-                                <a class="dropdown-item dropdown-item-rounded bg-primary text-light mb-2" href="/history">
+                                <a class="dropdown-item dropdown-item-rounded bg-primary text-light mb-2"
+                                    href="/history">
                                     Order history
                                 </a>
 
-                                <a class="dropdown-item dropdown-item-rounded bg-danger text-light mb-2" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item dropdown-item-rounded bg-danger text-light mb-2"
+                                    href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Logout
                                 </a>
@@ -200,7 +209,7 @@
 
         <main class="">
             @yield('content')
-          
+
         </main>
         @include('sweetalert::alert')
 

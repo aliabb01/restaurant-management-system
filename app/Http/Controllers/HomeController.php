@@ -24,7 +24,13 @@ class HomeController extends Controller
     public function index()
     {
         
-        
+        if(session('success')){
+            Alert::toast('Dish was added to cart', 'info');
+        }
+
+        if(session('success1')){
+            Alert::toast('Payment is done', 'success');
+        }
 
         return view('welcome');
     }
