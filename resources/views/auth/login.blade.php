@@ -24,7 +24,7 @@
     }
 
     .card-header {
-        background-color: var(--laravel-red);
+        background-color: var(--primary-red);
     }
 
     #email {
@@ -49,14 +49,14 @@
         cursor: pointer;
     }
 
-    .btn-collapse-google{
-        background-color:var(--laravel-red);
-        border-radius:25px;
-        margin-left:47%;
+    .btn-collapse-google {
+        background-color: var(--laravel-red);
+        border-radius: 25px;
+        margin-left: 47%;
     }
 
-    .btn-collapse-google:hover{
-        color:yellowgreen !important;
+    .btn-collapse-google:hover {
+        color: yellowgreen !important;
     }
 
     .fa-google {
@@ -75,7 +75,7 @@
 <div class="container log-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card border-0">
                 <div class="card-header text-center text-white pt-3 pb-3">
                     <h4>Login</h4>
                 </div>
@@ -167,7 +167,7 @@
                                     using
                                     Google
 
-                                  
+
                                 </a>
                             </div>
                         </div>

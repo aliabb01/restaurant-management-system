@@ -3,6 +3,11 @@
 @section('content')
 
 <style>
+    .company {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size:25px;
+    }
+
     .btn-subscribe {
         background-color: aqua;
         color: black;
@@ -23,17 +28,21 @@
         background-color: #fddb3a;
     }
 
-    .search-input{
-        padding-right:100px;
-        padding-left:100px;
-        text-align:center;
+    .search-input {
+        padding-right: 100px;
+        padding-left: 100px;
+        text-align: center;
     }
 </style>
 
-<div class="container">
+<div class="container main-cont pt-4">
 
     <div class="text-center">
-        <img style="height:300px; width:300px;" src="images/logo_transparent.png" alt="">
+        <img style="height:200px; width:200px;" src="images/red_hat.svg" alt="">
+    </div>
+
+    <div class="text-center company">
+        <span>La Cozzza Infuriata</span>
     </div>
 
     <div class="container search-container text-center mt-5 mb-5">
@@ -53,12 +62,6 @@
 
             
         </div>-->
-
-
-
-
-
-
 </div>
 
 <div class="container-fluid">
@@ -67,15 +70,16 @@
         <div class="col-3 col-sm">
             <div class="card mx-auto mb-5" style="width: 18rem;">
                 <div class="card-header">
-                <img class="card-img-top" style="width:246; height:246;" src="{{ $dish->image}}"
+                    <img class="card-img-top" style="width:246; height:246;" src="{{ $dish->image}}"
                         alt="Card image cap">
                 </div>
                 <div class="card-body">
                     <h5>{{ $dish->title }}</h5>
                     <h6>Price ($): {{ $dish->Price }}</h6>
 
-                    <a style="border-radius:150px; border:0px;" class="btn btn-lg btn-outline-danger mb-3" data-toggle="collapse" href="#description{{$dish->id}}" role="button"
-                aria-expanded="false" aria-controls="description{{$dish->id}}">
+                    <a style="border-radius:150px; border:0px;" class="btn btn-lg btn-outline-danger mb-3"
+                        data-toggle="collapse" href="#description{{$dish->id}}" role="button" aria-expanded="false"
+                        aria-controls="description{{$dish->id}}">
                         <span><i class="fas fa-chevron-down"></i><span>
                     </a>
 

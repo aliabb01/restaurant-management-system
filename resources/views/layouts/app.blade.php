@@ -30,15 +30,50 @@
     <style>
         :root {
             --laravel-red: #F05340;
+            --primary-blue: #195199;
+            --primary-red: #D4003D;
+            --footer: #1F1F1F;
         }
 
         .bg-cus {
-            background-color: #F05340;
+            background-color: var(--primary-blue);
         }
 
         #app {
             position: relative;
             min-height: 70vh;
+        }
+
+        .logo-name{
+            font-size:18px;
+        }
+
+        .nav-item{
+            font-size:16px;
+        }
+
+        /* bottom-line is the bottom border that is visible when you hover on an nav-item */
+        .bottom-line {
+            border: none;
+            position: relative;
+        }
+
+        .bottom-line::after {
+            content: '';
+            position: absolute;
+            /* Change this to absolute/relative depending on nav-link:hover style */
+            width: 0px;
+            height: 2px;
+            left:50%;
+            bottom: 0;
+            background-color: white;  /* color of the bottom-border */
+            transition: all ease-in-out .3s;
+            margin-bottom: 3px;
+        }
+
+        .bottom-line:hover::after {
+            width: 99%;
+            left: 0;
         }
 
         #footer {
@@ -50,10 +85,10 @@
     </style>
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-cus shadow-sm">
+        <nav class="pt-4 pb-4 navbar navbar-expand-md navbar-dark bg-cus shadow-lg">
             <div class="container">
                 <!--<img style="border-radius:100px; background-color:white;height:100px; width:100px;" src="images/logo_transparent.png" alt="">-->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand logo-name" href="{{ url('/') }}">
                     La Cozza Infuriata
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -66,48 +101,50 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                        <li class="nav-item">
+                        <li class="nav-item bottom-line {{ Request::is('/') ? 'active' : '' }}">
                             <a class="nav-link" href="/">Home<a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item bottom-line {{ Request::is('about') ? 'active' : '' }}">
                             <a class="nav-link" href="/about">About</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item bottom-line {{ Request::is('careers') ? 'active' : '' }}">
                             <a class="nav-link" href="/careers">Careers</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Contact Us
+                        <li class="nav-item dropdown bottom-line">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Contact Us
                             </a>
                             <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="/feedback">Feedback</a>
-                              <a class="dropdown-item" href="/report">Report a problem</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="/feedback">Feedback</a>
+                                <a class="dropdown-item" href="/report">Report a problem</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                          </li>
+                        </li>
 
                     </ul>
 
                     <!-- Right Side Of Navbar -->
 
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto nav-item">
                         <a href="{{route('show')}}" class="nav-link">
 
                             <!-- My cart page -->
                             My Cart
-                            <span class="fas fa-shopping-cart">
-                                ( {{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }})
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge badge-pill badge-danger" style="font-size:12px;">
+                                {{ session()->has('cart') ? session()->get('cart')->totalQty : '0' }}
                             </span>
 
                         </a>
                         <!-- Authentication Links -->
                         @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <li class="nav-item {{ Request::is('login') ? 'active' : '' }}">
+                            <a class="nav-link text-success" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
-                        <li class="nav-item">
+                        <li class="nav-item {{ Request::is('register') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
@@ -117,7 +154,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-                          
+
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <div class="text-center ml-4" style="width:60px; height:60px;">
@@ -166,7 +203,7 @@
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
     })();
-</script>
+    </script>
     <!--End of Tawk.to Script-->
 
 </body>

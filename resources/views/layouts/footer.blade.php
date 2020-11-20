@@ -1,7 +1,20 @@
 <!--CSS -->
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
   :root {
     --facebook-color: #4267B2;
+    --twitter-color: #1DA1F2;
+    --linkedin-color: #0e76a8;
+  }
+
+  .footer {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:125%;
+  }
+
+  .bg-footer{
+    background: var(--footer);
   }
 
   .facebook {
@@ -9,7 +22,7 @@
   }
 
   .twitter {
-    color: #1DA1F2;
+    color: var(--twitter-color);
   }
 
   .google {
@@ -21,12 +34,12 @@
   }
 
   .linkedin {
-    color: #0e76a8;
+    color: var(--linkedin-color);
   }
 </style>
 
 <!-- Footer -->
-<footer class="footer bg-dark text-white pt-4">
+<footer class="footer bg-footer  text-white pt-4">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">
@@ -51,10 +64,12 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><!--Here you can write something--></h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+          <!--Here you can write something-->
+        </h5>
 
         <ul class="list-unstyled">
-          
+
         </ul>
 
       </div>
@@ -66,10 +81,12 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><!--Here you can write something--></h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+          <!--Here you can write something-->
+        </h5>
 
         <ul class="list-unstyled">
-          
+
         </ul>
 
       </div>
@@ -78,20 +95,20 @@
       <hr class="clearfix w-100 d-md-none">
 
       <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
+      <div class="col-md-3 mx-auto">
 
         <!-- Links -->
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact Us</h5>
 
         <ul class="list-unstyled">
           <li>
-            <h6>Location: <span>Lithuania,Kaunas</span></h6>
+            <span>Location: <h6>Lithuania,Kaunas</h6></span>
           </li>
           <li>
-            <h6>Phone number: <span>(+370) 12345678</span></h6>
+            <span>Phone number: <br><h6>(+370) 12345678</h6></span>
           </li>
           <li>
-            <span>Email:</span> <a href="mailto:lacozzainfuriata@gmail.com">lacozzainfuriata@gmail.com</a>
+            <span>Email:</span> <h6><a href="mailto:lacozzainfuriata@gmail.com">lacozzainfuriata@gmail.com</a></h6>
           </li>
         </ul>
 
@@ -109,7 +126,7 @@
   <!-- Call to action -->
   <ul class="list-unstyled list-inline text-center py-2">
     <li class="list-inline-item">
-      <h5 class="mb-1">Subscribe for free</h5>
+      <h5 class="mb-1 mr-5">Subscribe for free</h5>
     </li>
     <li class="list-inline-item text-dark text-left">
       @include('subscribe')

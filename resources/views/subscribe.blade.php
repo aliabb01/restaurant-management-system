@@ -1,8 +1,25 @@
+<style>
+    .btn-sub{
+        background-color:var(--primary-blue);
+        border:0.1px solid white;
+        border-radius:25px;
+        color:white;
+        transition: 0.3s;
+        
+    }
+    .btn-sub:hover{
+        background-color:var(--primary-red);  
+        border:0.1px solid var(--primary-red);      
+        color:white;
+        transition: 0.3s;
+    }
+</style>
+
 <!-- Subscribe Modal -->
 <div class="subscribe-div">
 
     <div class="text-center">
-        <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#subscribeModal">Subscribe
+        <button type="button" class="btn btn-sub" data-toggle="modal" data-target="#subscribeModal">Subscribe
             to
             get
             mails

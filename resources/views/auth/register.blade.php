@@ -24,7 +24,7 @@
     }
 
     .card-header {
-        background-color: var(--laravel-red);
+        background-color: var(--primary-red);
     }
 
     #name {
@@ -83,7 +83,7 @@
 <div class="container reg-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card border-0">
                 <div class="card-header text-center text-white pt-3 pb-3">
                     <h4>Register</h4>
                 </div>
@@ -176,7 +176,7 @@
                             <div class="col-md-8 offset-md-4">
                                 <a href="{{ url('auth/google') }}" class="btn btn-light btn-lg text-primary ggl">
                                     <span class="fab fa-google"></span>
-                                    <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Sign in
+                                    <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Sign up
                                     using
                                     Google
                                 </a>
