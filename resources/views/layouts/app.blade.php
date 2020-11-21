@@ -126,7 +126,7 @@
                                 Contact Us
                             </a>
                             <div class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
-                                @if (Auth::guest())  {{-- Checking for user logged in or not, for contact us dropdown--}}
+                                @if (Auth::guest()) {{-- Checking for user logged in or not, for contact us dropdown--}}
                                 @else
                                 <a class="dropdown-item bg-danger text-light mb-2 dropdown-item-rounded"
                                     href="/feedback">Feedback</a>
@@ -144,6 +144,8 @@
                     <!-- Right Side Of Navbar -->
 
                     <ul class="navbar-nav ml-auto nav-item">
+                        @if (Auth::guest()) {{-- Checking for user logged in or not, for contact us dropdown--}}
+                        @else
                         <a href="{{route('show')}}" class="nav-link text-center">
 
                             <!-- My cart page -->
@@ -154,6 +156,7 @@
                             </span>
 
                         </a>
+                        @endif
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item {{ Request::is('login') ? 'active' : '' }}">

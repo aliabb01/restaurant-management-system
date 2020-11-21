@@ -48,14 +48,13 @@
     }
 
     .card:hover {
-        -webkit-box-shadow: 0px 0px 15px 0.5px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0px 0px 15px 0.5px rgb(0, 183, 255);
         -moz-box-shadow: 0px 0px 15px 0.5px rgba(0, 0, 0, 0.3);
         box-shadow: 0px 0px 15px 0.5px rgba(0, 0, 0, 0.3);
         transition: 0.5s;
     }
 
     .card:hover .card-header {
-        background-color: aqua;
     }
 </style>
 
@@ -93,7 +92,7 @@
         @foreach(App\Dish::all() as $dish)
         <div class="col-3 col-sm">
             <a style="color:inherit; text-decoration: none;" href="/dishinformation/{{$dish->id}}">
-                <div class="card mx-auto mb-5" style="width: 18rem;">
+                <div class="card mx-auto mb-5 border border-danger" style="width: 18rem;">
                     <div class="card-header">
                         <img class="card-img-top" style="width:246; height:246;" src="{{ $dish->image}}"
                             alt="Card image cap">
