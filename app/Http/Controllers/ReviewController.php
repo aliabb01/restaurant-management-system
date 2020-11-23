@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Review;
+use App\User;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -14,7 +15,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $reviews = Review::all();
+    return view ('order-reviews',['reviews'=> $reviews]);
     }
 
     /**
@@ -24,7 +26,8 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        $reviews = Review::all();
+    return view ('/delete_reviews',['reviews'=> $reviews]);
     }
 
     /**
@@ -35,7 +38,16 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reviews=new  Review;
+        $reviews->user_id=$request->input('user_id');
+        $reviews->body=$request->input('body');
+        $reviews->quality=$request->input('quality');
+      //  $feeds->body=$request->input('body');
+       //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+   
+       $reviews->save();
+   // return ("save it");
+      return redirect('history');
     }
 
     /**
@@ -44,9 +56,11 @@ class ReviewController extends Controller
      * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review)
+    public function show(Request $request, $review)
     {
-        //
+        $reviews = Review::findOrFail($review);
+        return view('delete')->with('reviews', $reviews);
+      
     }
 
     /**
@@ -78,8 +92,10 @@ class ReviewController extends Controller
      * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy($review)
     {
-        //
+        $reviews = Review::find( $review);
+        $reviews->delete();
+        return redirect('dashboard');
     }
 }

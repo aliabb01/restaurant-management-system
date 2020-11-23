@@ -44,11 +44,13 @@
         </article>
         <article class="report-form">
             <h3>Report a problem</h3>
-            <form>
+            <form action="/storereport" method="post">
+                @csrf
+                <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                 <div class="form-group">
-                    <input type="text" placeholder="Name" class="form-control" name="Name"/>
+                    <input type="hidden" placeholder="Name" class="form-control" name="user_id" value="{{ Auth::user()->id}}"/>
                     <input type="email" placeholder="Email" class="form-control" name="Email"/>
-                    <textarea name="message" placeholder="Message" class="form-control" rows="8"></textarea>
+                    <textarea name="body" placeholder="Message" class="form-control" rows="8" ></textarea>
                 </div>
                 <button type="submit" class="submit-btn btn">Submit Here</button>
             </form>

@@ -33,7 +33,11 @@ class FeedbackController extends Controller
         $users = User::all();
         return view ('feedback',compact('users'));
     }
-
+    public function reprot()
+    {
+    $reports = Feedback::all();
+    return view ('report',['reports '=> $reports ]);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -53,7 +57,20 @@ class FeedbackController extends Controller
       return redirect('feedback');
     
     }
-
+    
+    public function storereport(Request $request)
+    {
+        $reports=new Feedback;
+        $reports->user_id=$request->input('user_id');
+        $reports->body=$request->input('body');
+      //  $feeds->body=$request->input('body');
+       //city::insert('inset into city(id,city_name,zip_code,description,distance) value(?,?,?,?,?)',[$id,$city_name,$zip_code,$description,$distance]);
+   
+       $reports->save();
+   // return ("save it");
+      return redirect('report');
+    
+    }
     /**
      * Display the specified resource.
      *
