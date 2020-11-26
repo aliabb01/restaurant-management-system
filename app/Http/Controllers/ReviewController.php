@@ -18,6 +18,7 @@ class ReviewController extends Controller
         $reviews = Review::all();
     return view ('order-reviews',['reviews'=> $reviews]);
     }
+    
 
     /**
      * Show the form for creating a new resource.

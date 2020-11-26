@@ -130,6 +130,12 @@
     </li>
     <li class="list-inline-item text-dark text-left">
       @include('subscribe')
+      {{
+Mail::send('adver',[],function($m){
+  $m->to('user@gmail.com')->subject('La Cozzza Infuriata');
+  return view ('welcome');
+})
+      }}
     </li>
   </ul>
   <!-- Call to action -->

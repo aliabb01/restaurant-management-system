@@ -182,12 +182,11 @@
 @if (session('success1'))
 {{
 Mail::send('payment-email',[],function($m){
-  $m->to('user@gmail.com')->subject('Apollon');
+  $m->to('user@gmail.com')->subject('La Cozzza Infuriata');
   return view ('welcome');
 })
 }}
 @endif
-
 
 @endsection
 <style>

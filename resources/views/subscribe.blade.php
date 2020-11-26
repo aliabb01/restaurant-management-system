@@ -41,15 +41,16 @@
                     <form>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Enter your email:</label>
-                            <input type="email" class="form-control" id="recipient-name">
+                            <input type="email" class="form-control" id="recipient-name" name="email">
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer ml-3">
                     <small>By confirming you give consent for getting promotional emails from us time to
                         time</small>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Confirm</button>
+                    
+                     <a href="/welcome" class="btn btn-danger " data-dismiss="modal"> Confirm</a>
+                   
                 </div>
             </div>
         </div>
