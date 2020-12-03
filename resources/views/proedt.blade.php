@@ -8,17 +8,17 @@
          
           <div class="form-group">
             <label for="id">id</label>
-          <input type="text" class="form-control" name="id" value="{{Auth::user()->id}}">
+          <input type="hidden" class="form-control" name="id" value="{{Auth::user()->id}}">
           </div>
           <br>
           <div class="form-group">
             <label for="name">name</label>
-            <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}">
+            <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" required>
           </div>
           <br>
           <div class="form-group">
             <label for="email">email</label>
-            <input type="value" class="form-control" name="email" value="{{Auth::user()->email}}" >
+            <input type="value" class="form-control" name="email" value="{{Auth::user()->email}}" required>
           </div>
           <br>
           <div class="form-group">

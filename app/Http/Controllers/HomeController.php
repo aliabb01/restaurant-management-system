@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use RealRashid\SweetAlert\Facades\Alert;
+use RealRashid\SweetAlert\Facades\Auth;
+use RealRashid\SweetAlert\Facades\DB;
 use Illuminate\Http\Request;
 use App\Dish;
 class HomeController extends Controller
@@ -29,9 +31,15 @@ class HomeController extends Controller
         }
 
         if(session('success1')){
-            Alert::toast('Payment is done', 'success');
+            Alert::toast('Paid successfully.check your email', 'success');
         }
-
+       
         return view('welcome');
     }
+    public function most()
+    {
+        $ladishes = Dish::latest()->take(1)->get();
+        return view('welcome',compact('ladishes'));
+    }
+   
 }

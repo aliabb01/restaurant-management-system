@@ -53,7 +53,7 @@
 
             </h5>
 
-            <p> Comment by {{$i->user_id}}</p>
+            <p>{{ Auth::user()->name}}</p>
             <p>{{$i->body}}</p>
             Date: {{ date('d M Y') }}
 

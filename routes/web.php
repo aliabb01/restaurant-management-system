@@ -59,7 +59,7 @@ Route::post('/feedback-store','FeedbackController@store');
   //  return view('dishinformation');
 //});
 Route::get('/welcome', 'HomeController@index');
-
+Route::get('/welcome', 'HomeController@most');
 Route::get('/result', 'SearchController@index');
 
 Route::get('/history', 'OrderController@index');
@@ -100,6 +100,10 @@ Route::get('/invoice', function(){
     $pdf = PDF::loadView('invoice');
     return $pdf->download('invoice.pdf');
 });
+
+Route::get('/de', 'HomeController@details');
+
+
 Auth::routes();
 //Route::get('/job-application', 'DishController@new');
 

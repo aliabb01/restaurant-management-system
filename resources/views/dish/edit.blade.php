@@ -27,22 +27,22 @@
           <br>
           <div class="form-group">
             <label for="title">title</label>
-            <input type="text" class="form-control" name="title" value="{{$dishes->title}}">
+            <input type="text" class="form-control" name="title" value="{{$dishes->title}}" required>
           </div>
           <br>
           <div class="form-group">
             <label for="Description">Description</label>
-            <input type="value" class="form-control" name="Description" value="{{$dishes->Description}}" >
+            <input type="value" class="form-control" name="Description" value="{{$dishes->Description}}" required>
           </div>
           <br>
           <div class="form-group">
             <label for="Price">Price</label>
-            <input type="text" class="form-control" name="Price" value="{{$dishes->Price}}">
+            <input type="text" class="form-control" name="Price" value="{{$dishes->Price}}" required>
           </div>
           <br>
           <div class="form-group">
             <label for="Calorie">Calorie</label>
-            <input type="value" class="form-control" name="Calorie" value="{{$dishes->Calorie}}" >
+            <input type="value" class="form-control" name="Calorie" value="{{$dishes->Calorie}}"  required>
           </div>
           <br>
           <button type="submit"  class="btn btn-primary">update</button>

@@ -154,7 +154,7 @@ class DishController extends Controller
         $cart = new Cart(session()->get('cart'));
         $cart->updateQty($dish->id, $request->qty);
         session()->put('cart', $cart);
-        return redirect()->route('show')->with('success', 'Product updated');
+        return redirect()->route('show')->with('success3', 'Product updated');
     }
 
     public function destroy($dish)
@@ -218,7 +218,7 @@ class DishController extends Controller
                 // clearn cart 
             ]);
             session()->forget('cart');
-            return redirect('/welcome')->with('success1', " Payment was done. Thanks");
+            return redirect('/welcome')->with('success1', " Paid successfully.check your email");
         } else {
             return redirect()->back();
         }

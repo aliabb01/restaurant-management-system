@@ -22,33 +22,33 @@
   <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
     <div class="form-group">
       <label for="id">id</label>
-    <input type="text" class="form-control" name="id" >
+    <input type="text" class="form-control" name="id" required>
     </div>
     <br>
     <div class="form-group">
       <label for="title">title</label>
-      <input type="text" class="form-control" name="title" >
+      <input type="text" class="form-control" name="title" required>
     </div>
     <br>
     <div class="form-group">
       <label for="Description">Description</label>
-      <input type="value" class="form-control" name="Description" >
+      <input type="value" class="form-control" name="Description" required>
     </div>
     <br>
     <div class="form-group">
       <label for="Price">Price</label>
-      <input type="text" class="form-control" name="Price" >
+      <input type="text" class="form-control" name="Price" required>
     </div>
     <br>
 
     <div class="form-group">
       <label for="Calorie">calorie</label>
-      <input type="text" class="form-control" name="Calorie" >
+      <input type="text" class="form-control" name="Calorie" required>
     </div>
     <br>
     <div class="form-group">
       <label for="image">image</label>
-      <input type="text" class="form-control" name="image" >
+      <input type="text" class="form-control" name="image" required>
     </div>
     <br>
     <div class="form-group">
