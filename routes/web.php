@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Dish;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +12,28 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('/welcome');
 });
+Route::get('/po', function () {
+    $dishes = Dish::where(function($query){
+
+		$min_price = Request::has('min_price') ?  Request::get('min_price') : null;
+		$max_price = Request::has('max_price') ? Request::get('max_price') : $max_price = null;
+		
+
+		if(isset($min_price) && isset($max_price)){
+
+			
+
+			$query-> where('price','>=',$min_price);
+			$query-> where('price','<=',$max_price);
+		}
+
+	})->get();
+	return View::make('result1', compact('dishes',$dishes));
+});
+
 
 Route::get('user', ['middleware' => 'auth', function () {
     return view('welcome');
@@ -32,8 +50,8 @@ Route::get('careers', function () {
     return view('/careers');
 });
 
-
-
+Route::get('/result','SearchController@search');
+Route::get('/pr','SearchController@search1');
 Route::get('feedback', function () {
     return view('/feedback');
 });
@@ -59,8 +77,7 @@ Route::post('/feedback-store','FeedbackController@store');
   //  return view('dishinformation');
 //});
 Route::get('/welcome', 'HomeController@index');
-Route::get('/welcome', 'HomeController@most');
-Route::get('/result', 'SearchController@index');
+//Route::get('/welcome', 'HomeController@most');
 
 Route::get('/history', 'OrderController@index');
 Route::get('/cart', 'DishController@add');

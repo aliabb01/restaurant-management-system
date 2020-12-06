@@ -69,8 +69,10 @@
     </div>
 
     <div class="container search-container text-center mt-5 mb-5">
-        <form class="" action="/result">
-            <input class="search-input pb-2" type="text" placeholder="Search for dishes" name="search">
+        <form action="/result" method="get">
+        <input class="search-input pb-2" type="text" placeholder="Search for dishes" name="query" id="query" value="{{request()->input('query')}}">
+     
+          
             <button class="btn pt-2 pb-2 search-btn" type="submit"><i class="fa fa-search "></i></button>
         </form>
     </div>
@@ -86,7 +88,29 @@
             
         </div>-->
 </div>
+<div class="text-center">
+<form action="/po">
 
+	<label for="">Price</label>
+
+	<br>
+	min: <input type="text" name="min_price" value="{{Request::get('min_price')}}">
+
+	
+	max: <input type="text" name="max_price" value="{{Request::get('max_price')}}">
+
+
+
+	<br>
+	
+	<br>
+
+	<button>Go</button>
+</form>
+</div>
+<div >
+
+</div>
 <div class="container-fluid">
     <div class="row">
         @foreach(App\Dish::all() as $dish)
@@ -163,6 +187,7 @@
             </div> -->
     </div>
 </div>-
+{{--
 <h2 class="text-center">popular</h2>
 @foreach ($ladishes as $item)
 <div class="col-3 col-sm">
@@ -198,6 +223,7 @@
     </a>
 </div>
 @endforeach
+--}
 <!--<div class="row">
 
     @foreach(App\Dish::all() as $dish)
@@ -212,7 +238,7 @@
             </div>
         </div>
         @endforeach
-
+--}}
     </div>
 
 </div>-->
@@ -223,7 +249,7 @@ Mail::send('payment-email',[],function($m){
   $m->to('user@gmail.com')->subject('La Cozzza Infuriata');
   return view ('welcome');
 })
-}}
+
 @endif
 
 @endsection
