@@ -76,8 +76,10 @@ Route::post('/feedback-store','FeedbackController@store');
 //Route::get('di', function () {
   //  return view('dishinformation');
 //});
+
+
 Route::get('/welcome', 'HomeController@index');
-//Route::get('/welcome', 'HomeController@most');
+Route::get('/welcome', 'HomeController@most');
 
 Route::get('/history', 'OrderController@index');
 Route::get('/cart', 'DishController@add');
@@ -119,6 +121,7 @@ Route::get('/invoice', function(){
 });
 
 Route::get('/de', 'HomeController@details');
+
 
 
 Auth::routes();

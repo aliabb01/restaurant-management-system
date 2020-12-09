@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 use RealRashid\SweetAlert\Facades\Alert;
 use RealRashid\SweetAlert\Facades\Auth;
-use RealRashid\SweetAlert\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Dish;
 class HomeController extends Controller
 {
@@ -38,7 +38,8 @@ class HomeController extends Controller
     }
     public function most()
     {
-        $ladishes = Dish::latest()->take(1)->get();
+        $ladishes = Dish::orderBy('Calorie','desc')->take(2)->get();
+       // $ladishes = DB::table('dishes')->orderBy('Calorie','desc')->take(1)->get();
         return view('welcome',compact('ladishes'));
     }
    

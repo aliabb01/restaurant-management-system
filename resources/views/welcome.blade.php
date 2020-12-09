@@ -54,8 +54,7 @@
         transition: 0.5s;
     }
 
-    .card:hover .card-header {
-    }
+    .card:hover .card-header {}
 </style>
 
 <div class="container main-cont pt-4">
@@ -70,47 +69,46 @@
 
     <div class="container search-container text-center mt-5 mb-5">
         <form action="/result" method="get">
-        <input class="search-input pb-2" type="text" placeholder="Search for dishes" name="query" id="query" value="{{request()->input('query')}}">
-     
-          
+            <input class="search-input pb-2" type="text" placeholder="Search for dishes" name="query" id="query"
+                value="{{request()->input('query')}}">
+
+
             <button class="btn pt-2 pb-2 search-btn" type="submit"><i class="fa fa-search "></i></button>
         </form>
     </div>
 
-    <!--<div class="container pt-1 pb-2 my-3  bg-dark su" id="">
+    <div class="container pt-1 pb-2 my-3 bg-dark su" id="">
 
-            <h4 class="text-center mt-1">
-                <span>Stay up to date in the email world.</span> </h4>
-            <h4 class="text-center mt-1">
-                Subscribe for weekly emails with curated articles, guides, and videos to enhance your marketing tactics.
-            </h4>
+        <h4 class="text-center mt-1">
+            <span>Stay up to date in the email world.</span> </h4>
+        <h4 class="text-center mt-1">
+            Subscribe for weekly emails with curated articles, guides, and videos to enhance your marketing tactics.
+        </h4>
 
-            
-        </div>-->
+
+    </div>
 </div>
 <div class="text-center">
-<form action="/po">
+    <form action="/po">
 
-	<label for="">Price</label>
+        <label for="">Price</label>
 
-	<br>
-	min: <input type="text" name="min_price" value="{{Request::get('min_price')}}">
-
-	
-	max: <input type="text" name="max_price" value="{{Request::get('max_price')}}">
+        <br>
+        min: <input type="text" name="min_price" value="{{Request::get('min_price')}}">
 
 
+        max: <input type="text" name="max_price" value="{{Request::get('max_price')}}">
 
-	<br>
-	
-	<br>
 
-	<button>Go</button>
-</form>
+
+        <br>
+
+        <br>
+
+        <button>Go</button>
+    </form>
 </div>
-<div >
 
-</div>
 <div class="container-fluid">
     <div class="row">
         @foreach(App\Dish::all() as $dish)
@@ -123,25 +121,25 @@
                     </div>
                     <div class="card-body">
                         <form action="/de">
-                        <h5>{{ $dish->title }}</h5>
-                        <h6>Price ($): {{ $dish->Price }}</h6>
+                            <h5>{{ $dish->title }}</h5>
+                            <h6>Price ($): {{ $dish->Price }}</h6>
 
-                        <a style="border-radius:150px; border:0px;" class="btn btn-lg btn-outline-danger mb-3"
-                            data-toggle="collapse" href="#description{{$dish->id}}" role="button" aria-expanded="false"
-                            aria-controls="description{{$dish->id}}">
-                            <span><i class="fas fa-chevron-down"></i><span>
-                        </a>
+                            <a style="border-radius:150px; border:0px;" class="btn btn-lg btn-outline-danger mb-3"
+                                data-toggle="collapse" href="#description{{$dish->id}}" role="button"
+                                aria-expanded="false" aria-controls="description{{$dish->id}}">
+                                <span><i class="fas fa-chevron-down"></i><span>
+                            </a>
 
-                        <div class="collapse" id="description{{$dish->id}}">
-                            <h5>{{ $dish->Description }}</h5>
+                            <div class="collapse" id="description{{$dish->id}}">
+                                <h5>{{ $dish->Description }}</h5>
 
-                        </div>
+                            </div>
 
 
-                        <div class="text-center">
-                            <a href="{{ route('cart.add',$dish)}}" class="btn btn-danger"> Buy</a>
-                        </div>
-                    </form>
+                            <div class="text-center">
+                                <a href="{{ route('cart.add',$dish)}}" class="btn btn-danger"> Buy</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </a>
@@ -150,98 +148,88 @@
 
 
 
-        <!--<div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+        <!-- <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div> -->
-    </div>
-</div>-
-{{--
-<h2 class="text-center">popular</h2>
-@foreach ($ladishes as $item)
-<div class="col-3 col-sm">
-    <a style="color:inherit; text-decoration: none;" href="/dishinformation/{{$item->id}}">
-        <div class="card mx-auto mb-5 border border-danger" style="width: 18rem;">
-            <div class="card-header">
-                <img class="card-img-top" style="width:246; height:246;" src="{{ $item->image}}"
-                    alt="Card image cap">
-            </div>
-            <div class="card-body">
-                <form action="/de">
-                <h5>{{ $item->title }}</h5>
-                <h6>Price ($): {{ $item->Price }}</h6>
-
-                <a style="border-radius:150px; border:0px;" class="btn btn-lg btn-outline-danger mb-3"
-                    data-toggle="collapse" href="#description{{$item->id}}" role="button" aria-expanded="false"
-                    aria-controls="description{{$item->id}}">
-                    <span><i class="fas fa-chevron-down"></i><span>
-                </a>
-
-                <div class="collapse" id="description{{$item->id}}">
-                    <h5>{{ $item->Description }}</h5>
-
-                </div>
-
-
-                <div class="text-center">
-                    <a href="{{ route('cart.add',$item)}}" class="btn btn-danger"> Buy</a>
-                </div>
-            </form>
             </div>
         </div>
-    </a>
-</div>
-@endforeach
---}
-<!--<div class="row">
 
-    @foreach(App\Dish::all() as $dish)
-    <div class="col-md-4">
-        <div class="card mb-2">
-            <div class="card-body">
-                <h5>{{ $dish->title }}</h5>
-
-                price:$ {{ $dish->Price }}
-                <br>
-                <a href="{{ route('cart.add',$dish)}}" class="btn btn-primary"> Buy</a>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
+        </div>
+
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>-->
+
+    </div>
+</div>
+
+@if (Auth::guest()) {{-- Checking for user logged in or not, for contact us dropdown--}}
+@else
+
+<div class="container-fluid mt-5 mb-4">
+    <h2 class="text-center">Sorted by calorie</h2>
+    <div class="row">
+        @foreach ($ladishes as $item)
+        <div class="col-3">
+            <a style="color:inherit; text-decoration: none;" href="/dishinformation/{{$item->id}}">
+                <div class="card mx-auto mb-5 border border-danger" style="width: 18rem;">
+                    <div class="card-header">
+                        <img class="card-img-top" style="width:246; height:246;" src="{{ $item->image}}"
+                            alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <form action="/de">
+                            <h5>{{ $item->title }}</h5>
+                            <h6>Price ($): {{ $item->Price }}</h6>
+
+                            <a style="border-radius:150px; border:0px;" class="btn btn-lg btn-outline-danger mb-3"
+                                data-toggle="collapse" href="#description{{$item->id}}" role="button"
+                                aria-expanded="false" aria-controls="description{{$item->id}}">
+                                <span><i class="fas fa-chevron-down"></i><span>
+                            </a>
+
+                            <div class="collapse" id="description{{$item->id}}">
+                                <h5>{{ $item->Description }}</h5>
+
+                            </div>
+
+
+                            <div class="text-center">
+                                <a href="{{ route('cart.add',$item)}}" class="btn btn-danger"> Buy</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </a>
         </div>
         @endforeach
---}}
     </div>
-
-</div>-->
+    @endif
+</div>
 
 @if (session('success1'))
 {{
@@ -249,9 +237,8 @@ Mail::send('payment-email',[],function($m){
   $m->to('user@gmail.com')->subject('La Cozzza Infuriata');
   return view ('welcome');
 })
+}}
 
 @endif
 
 @endsection
-<style>
-</style>
