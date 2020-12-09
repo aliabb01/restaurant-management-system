@@ -79,7 +79,7 @@ Route::post('/feedback-store','FeedbackController@store');
 
 
 Route::get('/welcome', 'HomeController@index');
-Route::get('/welcome', 'HomeController@most');
+Route::get('/most', 'HomeController@most');
 
 Route::get('/history', 'OrderController@index');
 Route::get('/cart', 'DishController@add');

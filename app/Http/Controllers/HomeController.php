@@ -40,7 +40,7 @@ class HomeController extends Controller
     {
         $ladishes = Dish::orderBy('Calorie','desc')->take(2)->get();
        // $ladishes = DB::table('dishes')->orderBy('Calorie','desc')->take(1)->get();
-        return view('welcome',compact('ladishes'));
+        return view('most',compact('ladishes',$ladishes));
     }
    
 }
