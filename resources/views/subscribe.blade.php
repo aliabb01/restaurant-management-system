@@ -49,7 +49,7 @@
                     <small>By confirming you give consent for getting promotional emails from us time to
                         time</small>
                     
-                     <a href="/welcome" class="btn btn-danger " data-dismiss="modal"> Confirm</a>
+                     <a href="/sub"  class="btn btn-danger " data-dismiss="modal">  Confirm</a>
                    
                 </div>
             </div>

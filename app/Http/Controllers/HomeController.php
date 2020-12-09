@@ -6,6 +6,7 @@ use RealRashid\SweetAlert\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Dish;
+use Mail;
 class HomeController extends Controller
 {
     /**
@@ -33,14 +34,18 @@ class HomeController extends Controller
         if(session('success1')){
             Alert::toast('Paid successfully.check your email', 'success');
         }
-       
+        if(session('me')){
+            Alert::toast('subscribe', 'info');
+        }
         return view('welcome');
     }
     public function most()
     {
-        $ladishes = Dish::orderBy('Calorie','desc')->take(2)->get();
+        $ladishes = Dish::orderBy('Calorie','asc')->take(2)->get();
        // $ladishes = DB::table('dishes')->orderBy('Calorie','desc')->take(1)->get();
         return view('most',compact('ladishes',$ladishes));
     }
+
    
+        
 }

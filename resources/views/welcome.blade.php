@@ -136,7 +136,7 @@
             </a>
         </div>
         @endforeach
-<a href="/most">Most</a>
+        <br>
 
 
         <!-- <div class="col-3">
@@ -177,7 +177,13 @@
 
     </div>
 </div>
-
+<a href="/most">Most</a>
+<br>
+<div>
+<h3>subsribe for emial</h3>
+<input type="email" name="email" id="" placeholder="email">
+<a href="/sub"> enter</a>
+</div>
 
 
 @if (session('success1'))
@@ -189,5 +195,13 @@ Mail::send('payment-email',[],function($m){
 }}
 
 @endif
+@if (session('me'))
+  {{ 
+    Mail::send('adver',[],function($m){
+      $m->to('user@gmail.com')->subject('La Cozzza Infuriata');
+      return view ('welcome');
+    })
+}}
 
+@endif
 @endsection

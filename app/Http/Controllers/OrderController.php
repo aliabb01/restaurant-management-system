@@ -22,7 +22,11 @@ class OrderController extends Controller
         //dd($carts);
         return view('history')->with('carts', $carts);
     }
-
+    public function su()
+    {
+        return redirect('welcome')->with('me', 'Product was removed');
+        
+    } 
     /**
      * Show the form for creating a new resource.
      *

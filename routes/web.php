@@ -50,6 +50,10 @@ Route::get('careers', function () {
     return view('/careers');
 });
 
+Route::get('mailing', function () {
+    return view('/mailing');
+});
+
 Route::get('/result','SearchController@search');
 Route::get('/pr','SearchController@search1');
 Route::get('feedback', function () {
@@ -121,7 +125,7 @@ Route::get('/invoice', function(){
 });
 
 Route::get('/de', 'HomeController@details');
-
+Route::get('/sub', 'OrderController@su');
 
 
 Auth::routes();
